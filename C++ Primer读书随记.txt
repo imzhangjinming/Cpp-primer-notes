@@ -525,7 +525,58 @@ PODType ： POD (Plain Old Data) type
 不要返回局部对象的引用或指针
 
 #
+Type (*function(parameter_list))[dimension]
 
+string (&func(string (&arrStr[10])))[10]
+
+#
+如果同一作用域内的几个函数名字相同但形参列表不同，我们称之为重载函数。
+
+不允许两个函数除了返回类型外其他所有的要素都相同。
+
+#
+在不同的作用域中无法重载函数名
+
+#
+在C++中，名字查找发生在类型检查之前
+
+#
+默认实参
+一旦某个形参被赋予了默认值，它后面的所有形参都必须有默认值
+
+#
+内联说明只是向编译器发出的一个请求，编译器可以选择忽略这个请求
+
+#
+assert(expr)
+
+首先对expr求值，如果表达式为假，assert输出信息并终止程序的执行。如果表达式为真，则什么也不做
+
+#
+assert是预处理宏，它由预处理器而非编译器管理，所以无需使用using声明
+
+#
+__FILE__	存放文件名的字符串字面值
+__LINE__	存放当前行号的字面值
+__TIME__	存放文件编译时间的字符串字面值
+__DATE__	存放文件编译日期的字符串字面值
+
+#
+函数指针形参
+
+和数组类似，虽然不能定义函数类型的形参，但是形参可以是指向函数的指针。
+
+void useBigger(const string &s1,const string &s2,bool pf(const string &,const string &));
+
+
+void useBigger(const string &s1,const string &s2,bool (*pf)(const string &,const string &));
+
+上面两种声明是等价的
+
+#
+using Fp = int(*)(int,int); //Fp是函数指针
+
+#
 
 
 
