@@ -36,13 +36,14 @@ private:
 
 # 第八章 IO库
 
-* IO库类型和头文件
-|头文件|类型|
-|:---:|:---:|
-|iostream|istream ostream iostream|
-|fstream|iftream ofstream fstream|
-|sstream|istringstream ostringstream stringstream|
+* IO库类型和头文件 
 
+ |头文件 | 类型|   
+ :---: | :---:  
+ iostream | istream ostream iostream  
+ fstream | iftream ofstream fstream   
+ sstream | istringstream ostringstream stringstream 
+ 
 * IO对象无**拷贝**或**赋值**
 * 由于IO对象无法进行拷贝或赋值，所以不能将形参或返回类型设置为流类型。通常以**引用**方式传递和返回流。读写一个IO对象会改变其状态，因此传递和返回的引用不能是`const`的。
 * 一个流一旦发生错误，其上后续的IO操作也会失败。
