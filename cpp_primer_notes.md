@@ -36,48 +36,47 @@ private:
 
 # 第八章 IO库
 
-* IO库类型和头文件
+* IO库类型和头文件  
+
 |头文件|类型|
 |:---:|:---:|
 |iostream|istream ostream iostream|
 |fstream|iftream ofstream fstream|
 |sstream|istringstream ostringstream stringstream|
 
-* IO对象无**拷贝**或**赋值**
-* 由于IO对象无法进行拷贝或赋值，所以不能将形参或返回类型设置为流类型。通常以**引用**方式传递和返回流。读写一个IO对象会改变其状态，因此传递和返回的引用不能是`const`的。
-* 一个流一旦发生错误，其上后续的IO操作也会失败。
-* 每个输出流管理一个缓冲区，缓冲技术主要是为了提升效率，因为单一的写操作可能会很费时，将多个写操作合并成一个会节省很多开销。
-* `std::endl` 可以显式刷新缓冲区
-* `std::endl` `std::flush` `std::ends`都可以显式刷新缓冲区，但是它们的附加符号不同
-* `unitbuf` 和 `nounitbuf`
-* `tie` 可以用来关联流
-* 一个`fstream`对象被销毁时，`close`会被自动调用
-* 保留被`ofstream`打开的文件中已有的数据的唯一方法是显式指定`app`或`in`模式
+* IO对象无**拷贝**或**赋值**  
+* 由于IO对象无法进行拷贝或赋值，所以不能将形参或返回类型设置为流类型。通常以**引用**方式传递和返回流。读写一个IO对象会改变其状态，因此传递和返回的引用不能是`const`的。  
+* 一个流一旦发生错误，其上后续的IO操作也会失败。  
+* 每个输出流管理一个缓冲区，缓冲技术主要是为了提升效率，因为单一的写操作可能会很费时，将多个写操作合并成一个会节省很多开销。  
+* `std::endl` 可以显式刷新缓冲区  
+* `std::endl` `std::flush` `std::ends`都可以显式刷新缓冲区，但是它们的附加符号不同  
+* `unitbuf` 和 `nounitbuf`  
+* `tie` 可以用来关联流  
+* 一个`fstream`对象被销毁时，`close`会被自动调用  
+* 保留被`ofstream`打开的文件中已有的数据的唯一方法是显式指定`app`或`in`模式  
 
 # 第九章 顺序容器
+* 顺序容器类型
+	`vector` `deque` `list` `forward_list` `array` `string`  
+* `string` 和 `vector` 的元素保存在连续的内存空间中  
+* 通常，使用  **`vector`**是最好的选择，除非有很好的理由选择其他容器  
+* exercise 9.2  
+	`list<deque<int>> L;`  
+* `forward_list`迭代器不支持递减运算符  
+* 构成迭代器范围的迭代器的限制  
+	* `begin` 与 `end` 相等，则范围为空  
+	* `begin` 与 `end` 不等，则范围至少包含一个元素，且`begin` 指向该范围中的第一个元素  
+	* 可以对`begin` 递增若干次，使得 `begin == end`   
+* exercise 9.7  
+	`vector<int>::sizetype i;`  
+* exercise 9.8  
+	`list<string>::const_iterator i;`  
+	`list<string>::iterator i;`  
+* 当 `auto` 与 `begin` 或 `end` 结合使用时，获得的迭代器类型依赖于容器类型  
+* exercise 9.10
+	`it1 : iterator`  
+	`it2 : const_iterator`  
+	`it3 : const_iterator`  
+	`it4 : const_iterator`  
+* 只有顺序容器的构造函数才接受大小参数，关联容器并不支持  
 * 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
