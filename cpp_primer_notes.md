@@ -38,11 +38,11 @@ private:
 
 * IO库类型和头文件   
 
-|头文件 | 类型|  
-|:---: | :---: |  
-|iostream | istream ostream iostream|  
-|fstream | iftream ofstream fstream|  
-|sstream | istringstream ostringstream stringstream|  
+|头文件 | 类型|
+|:---: | :---: |
+|iostream | istream ostream iostream|
+|fstream | iftream ofstream fstream|
+|sstream | istringstream ostringstream stringstream|
 
 * IO对象无**拷贝**或**赋值**  
 * 由于IO对象无法进行拷贝或赋值，所以不能将形参或返回类型设置为流类型。通常以**引用**方式传递和返回流。读写一个IO对象会改变其状态，因此传递和返回的引用不能是`const`的。  
@@ -96,4 +96,35 @@ private:
 * `string` 的额外操作部分没有细看，需要用到时再回来查吧  
 * 容器**适配器**（`adaptor`）
 * 每个容器适配器都基于底层容器类型的操作定义了自己的特殊操作，我们**只能**使用适配器操作，不能使用底层容器的操作  
+
+# 第十章 泛型算法（generic algorithm）  
+
+* 泛型算法永远不会改变底层容器的大小。算法可能改变容器中保存的元素的值，也可能在容器内移动元素，但永远不会直接添加或删除元素。（因为这些操作可能会使迭代器失效）  
+
+* 对书中提到的算法做一个简单记录  
+
+|算法名称|功能|
+|:---:|:---:|
+|find|在一个未排序的元素序列中查找一个特定元素|
+|count|返回指定元素序列中指定值出现的次数|
+|accumulate|计算指定元素序列中所有元素的和|
+|equal|用于确定两个序列是否保存相同的值|
+|fill  fill_n|将范围内的元素赋为给定值|
+|copy|复制|
+|replace|替换|
+|sort|排序|
+
+* 只接受一个单一迭代器来表示第二个序列的算法，都假定第二个序列至少与第一个序列一样长  
+* 向目的位置迭代器写入数据的算法假定目的位置足够大，能容纳要写入的元素  
+* **可调用对象** （callable object）。
+* 四种可调用对象
+	* 函数  
+	* 函数指针  
+	* 重载了函数调用运算符的类  
+	* lambda表达式  
+* 一个lambda表达式表示一个可调用的代码单元，可以将其理解为一个未命名的内联函数  
+* lambda必须使用尾置返回类型  
+* lambda可以省略参数列表和返回类型，但必须永远包含捕获列表和函数体  
 * 
+
+
