@@ -1,2 +1,2 @@
-# Cpp-primer-notes
-Notes I take when reading cpp primer 5th edition.  
+# Cpp-primer-notes  
+The notes I made while reading the fifth edition of Cpp Primer.  
