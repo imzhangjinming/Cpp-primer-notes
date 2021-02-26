@@ -135,6 +135,6 @@ private:
 * `bind` 接受一个可调用对象，返回一个可调用对象  
 * placeholders 占位符
 * 使用占位符应该声明一个命名空间 `using namespace std::placeholders`  
-* do something 
+* i modify file in local repository  
 
 
