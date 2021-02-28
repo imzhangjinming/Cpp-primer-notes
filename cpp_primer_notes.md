@@ -135,6 +135,38 @@ private:
 * `bind` 接受一个可调用对象，返回一个可调用对象  
 * placeholders 占位符
 * 使用占位符应该声明一个命名空间 `using namespace std::placeholders`  
-* i modify file in local repository  
+* 插入迭代器  
+|类型|特点|
+|:---:|:---:|
+|back_inserter|创建一个使用push_back的迭代器|
+|front_inserter|创建一个使用push_front的迭代器|
+|inserter|创建一个使用insert的迭代器，第二个参数指向想要操作的容器，inserter创建的迭代器会向其参数位置之前插入元素|
+
+* 根据算法对迭代器操作的要求可以把迭代器分成5类  
+|类别|特点|
+|:---:|:---:|
+|输入迭代器|只读，不写；单遍扫描，只递增|
+|输出迭代器|只写，不读；单遍扫描，只递增|
+|前向迭代器|可读写；多遍扫描（？？），只递增|
+|双向迭代器|可读写；多遍扫描，可递增递减|
+|随机访问迭代器|可读写；多遍扫描，支持全部迭代器运算|
+
+# 第十一章 关联容器  
+* `map` 是键值对的集合，`set` 是关键字的集合  
+* `pair` 定义在头文件 `utility` 中  
+* `pair` 的默认构造函数对数据成员进行值初始化  
+* 关联容器的额外类型别名  
+|别名|特点|
+|:---:|:---:|
+|key_type|此容器类型的关键字类型|
+|mapped_type|每个关键字关联的类型|
+|value_type|对于 set ，即 key_type ; 对于 map ，即 pair<const key_type,mapped type>|
+
+* 我们不能改变一个元素的关键字  
+* 一个 map 的 value_type 是一个 pair  
+* set 的 迭代器是 const 的  
+* 通常不对关联容器使用泛型算法  
+* 
+
 
 
