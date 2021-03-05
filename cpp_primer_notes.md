@@ -136,6 +136,7 @@ private:
 * placeholders 占位符
 * 使用占位符应该声明一个命名空间 `using namespace std::placeholders`  
 * 插入迭代器  
+
 |类型|特点|
 |:---:|:---:|
 |back_inserter|创建一个使用push_back的迭代器|
@@ -214,6 +215,22 @@ private:
 	* 如果使用 `get()` 返回的指针，记住当最后一个对应的那个指针销毁后，你使用的指针就变为无效了（空悬指针）  
 	* 如果使用智能指针管理的资源不是 `new` 分配的内存，记住传递给它一个删除器（`deleter`）  
 
-*
+* `unique_ptr` 没有类似 `shared_ptr` 的 `make_shared` 那样的库函数，当我们定义一个 `unique_ptr` 时，必须将其绑定到一个 `new` 返回的指针上，同样的， `unique_ptr` 也必须使用直接初始化，而不能使用隐式转换初始化  
+* `unique_ptr` 不支持普通的拷贝或赋值操作  
+* `u = nullptr` 释放 u 指向的对象，将 u 置为空  
+* 可以使用 `release` 或 `reset` 将指针的所有权从一个 `unique_ptr` 转移给另一个 `unique_ptr`  
+* `allocator`  类允许我们将内存分配和初始化分离  
+* `allocator` 通常会提供更好的性能和更灵活的内存管理能力  
+* 大多数应用应该使用标准库容器而不是动态分配数组。  
+* `new int[size]` 方括号中的大小必须是整型，但**不必是常量**  
+* 动态分配一个数组时，得到的实际上是一个数组元素类型的指针  
+* **不能**使用范围 `for` 语句来处理所谓的动态数组  
+* 默认初始化和值初始化  
+	`int *pia = new int[10]; //10个默认初始化的int`  
+    `int *pia = new int[10](); //10个值初始化的int`  
+* `new char[0]` 是合法的，但是不能解引用它返回的指针  
+* `unique_ptr<int[]> up(new int[10]);` 使用 `unique_ptr` 指向一个动态分配的数组，指向数组的 `unique_ptr` 不支持成员访问运算符（点和箭头运算符）  
+* 由于 `shared_ptr` 默认使用 `delete` 释放关联的对象，所以如果想用 `shared_ptr` 管理动态数组，必须提供自己的删除器  
+* 
 
 
